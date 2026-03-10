@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── APE Design System Fonts ─────────────────────────────────── */
+
+/* No local woff2 fonts available — using system monospace/sans stack */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --radius: 0.5rem;
+
+    /* ─── Dark Theme (APE: Electric Cyan on Deep Space Navy) ─── */
+    --background: 0.11 0.015 265;
+    --foreground: 0.93 0.015 210;
+
+    --card: 0.14 0.02 260;
+    --card-foreground: 0.93 0.015 210;
+
+    --popover: 0.16 0.025 255;
+    --popover-foreground: 0.93 0.015 210;
+
+    /* Primary: Electric Cyan */
+    --primary: 0.72 0.18 196;
+    --primary-foreground: 0.08 0.015 265;
+
+    /* Secondary: Subtle Navy */
+    --secondary: 0.18 0.03 255;
+    --secondary-foreground: 0.93 0.015 210;
+
+    /* Muted */
+    --muted: 0.17 0.025 260;
+    --muted-foreground: 0.55 0.04 230;
+
+    /* Accent: Bright Teal */
+    --accent: 0.22 0.04 255;
+    --accent-foreground: 0.82 0.18 196;
+
+    /* Destructive: Crimson Red */
+    --destructive: 0.62 0.22 20;
+    --destructive-foreground: 0.97 0.01 0;
+
+    --border: 0.22 0.03 255;
+    --input: 0.20 0.03 260;
+    --ring: 0.72 0.18 196;
+
+    /* Chart Colors */
+    --chart-1: 0.72 0.18 196;
+    --chart-2: 0.65 0.20 145;
+    --chart-3: 0.80 0.18 85;
+    --chart-4: 0.62 0.22 20;
+    --chart-5: 0.70 0.18 280;
+
+    /* Sidebar */
+    --sidebar: 0.13 0.02 262;
+    --sidebar-foreground: 0.93 0.015 210;
+    --sidebar-primary: 0.72 0.18 196;
+    --sidebar-primary-foreground: 0.08 0.015 265;
+    --sidebar-accent: 0.18 0.03 255;
+    --sidebar-accent-foreground: 0.82 0.18 196;
+    --sidebar-border: 0.22 0.03 255;
+    --sidebar-ring: 0.72 0.18 196;
+
+    /* Custom APE Tokens */
+    --success: 0.62 0.18 145;
+    --success-foreground: 0.95 0.01 145;
+    --warning: 0.76 0.18 85;
+    --warning-foreground: 0.12 0.01 85;
+    --info: 0.72 0.18 196;
+    --info-foreground: 0.08 0.015 265;
+
+    /* Score colors */
+    --score-high: 0.65 0.20 145;
+    --score-mid: 0.76 0.18 85;
+    --score-low: 0.62 0.22 20;
+
+    /* Glow effects */
+    --glow-cyan: 0 0 20px oklch(0.72 0.18 196 / 0.4);
+    --glow-cyan-sm: 0 0 8px oklch(0.72 0.18 196 / 0.3);
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist', 'SF Mono', ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.13 0.02 262);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.30 0.05 255);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.50 0.10 210);
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, oklch(0.82 0.20 196), oklch(0.70 0.18 215));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+
+  .glow-cyan-sm {
+    box-shadow: var(--glow-cyan-sm);
+  }
+
+  .border-glow {
+    border-color: oklch(0.72 0.18 196 / 0.5);
+    box-shadow: 0 0 12px oklch(0.72 0.18 196 / 0.15), inset 0 1px 0 oklch(0.72 0.18 196 / 0.1);
+  }
+
+  .card-dark {
+    background: oklch(0.14 0.02 260);
+    border: 1px solid oklch(0.22 0.03 255);
+  }
+
+  .card-hover {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card-hover:hover {
+    border-color: oklch(0.72 0.18 196 / 0.4);
+    box-shadow: 0 4px 24px oklch(0.72 0.18 196 / 0.1);
+    transform: translateY(-1px);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(oklch(0.72 0.18 196 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.72 0.18 196 / 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .scan-line {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      oklch(0.72 0.18 196 / 0.04) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+  }
+
+  .status-badge-pending {
+    background: oklch(0.76 0.18 85 / 0.15);
+    color: oklch(0.86 0.18 85);
+    border: 1px solid oklch(0.76 0.18 85 / 0.3);
+  }
+
+  .status-badge-evaluating {
+    background: oklch(0.72 0.18 196 / 0.15);
+    color: oklch(0.82 0.18 196);
+    border: 1px solid oklch(0.72 0.18 196 / 0.4);
+  }
+
+  .status-badge-evaluated {
+    background: oklch(0.62 0.18 145 / 0.15);
+    color: oklch(0.75 0.18 145);
+    border: 1px solid oklch(0.62 0.18 145 / 0.3);
+  }
+
+  .status-badge-failed {
+    background: oklch(0.62 0.22 20 / 0.15);
+    color: oklch(0.75 0.22 20);
+    border: 1px solid oklch(0.62 0.22 20 / 0.3);
+  }
+}
+
+/* Pulsing animation for evaluating status */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 4px oklch(0.72 0.18 196 / 0.4);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 12px oklch(0.72 0.18 196 / 0.8);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Scanning animation for AI analyzing */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient noise overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
